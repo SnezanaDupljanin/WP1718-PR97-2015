@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDispecer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Dispecer>
+    <KorisnickoIme>admin</KorisnickoIme>
+    <Lozinka>admin</Lozinka>
+    <Ime>Pera</Ime>
+    <Prezime>Peric</Prezime>
+    <Pol>Muski</Pol>
+    <Jmbg>48788968</Jmbg>
+    <KontaktTelefon>06499965</KontaktTelefon>
+    <Email>pera@yahoo.com</Email>
+    <Uloga>Dispecer</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>13</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T07:09:47.532033</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8507226</KoordinataX>
+          <KoordinataY>45.2544028</KoordinataY>
+          <Adresa>
+            <Ulica>Pionirska</Ulica>
+            <Broj>bb</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>Nepoznato</TipAutomobila>
+        <Musterija>nepoznato</Musterija>
+        <Dispecer>admin</Dispecer>
+        <Vozac>vozac4</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Formirana</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>10</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T06:41:48.3243929</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8499953</KoordinataX>
+          <KoordinataY>45.2573385</KoordinataY>
+          <Adresa>
+            <Ulica>Trg Republike</Ulica>
+            <Broj>14</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+        <Musterija>JezdraGan</Musterija>
+        <Dispecer>admin</Dispecer>
+        <Vozac>vozac7</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Obradjena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+  </Dispecer>
+  <Dispecer>
+    <KorisnickoIme>admin1</KorisnickoIme>
+    <Lozinka>admin1</Lozinka>
+    <Ime>Mika</Ime>
+    <Prezime>Mikic</Prezime>
+    <Pol>Zenski</Pol>
+    <Jmbg>487968</Jmbg>
+    <KontaktTelefon>064686465</KontaktTelefon>
+    <Email>mika@yahoo.com</Email>
+    <Uloga>Dispecer</Uloga>
+    <Voznje />
+  </Dispecer>
+  <Dispecer>
+    <KorisnickoIme>admin2</KorisnickoIme>
+    <Lozinka>admin2</Lozinka>
+    <Ime>Zika</Ime>
+    <Prezime>Zikic</Prezime>
+    <Pol>Muski</Pol>
+    <Jmbg>484658</Jmbg>
+    <KontaktTelefon>064686765</KontaktTelefon>
+    <Email>zika@yahoo.com</Email>
+    <Uloga>Dispecer</Uloga>
+    <Voznje />
+  </Dispecer>
+</ArrayOfDispecer>

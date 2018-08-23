@@ -122,7 +122,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +166,9 @@
     </Compile>
     <Compile Include="Models\Adresa.cs" />
     <Compile Include="Models\Automobil.cs" />
-    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Dispecer.cs" />
     <Compile Include="Models\Komentar.cs" />
+    <Compile Include="Models\Korisnici.cs" />
     <Compile Include="Models\Korisnik.cs" />
     <Compile Include="Models\Lokacija.cs" />
     <Compile Include="Models\Musterija.cs" />
@@ -178,11 +177,15 @@
     <Compile Include="Models\StatusiVoznje.cs" />
     <Compile Include="Models\TipoviAutomobila.cs" />
     <Compile Include="Models\Uloge.cs" />
+    <Compile Include="Models\UlogujSe.cs" />
     <Compile Include="Models\Vozac.cs" />
     <Compile Include="Models\Voznja.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Adminitratori.xml" />
+    <Content Include="App_Data\Musterije.xml" />
+    <Content Include="App_Data\Vozaci.xml" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

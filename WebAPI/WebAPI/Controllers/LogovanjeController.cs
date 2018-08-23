@@ -4,34 +4,45 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
     public class LogovanjeController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        // GET: api/Logovanje
+        [HttpGet]
+        [Route("api/Logovanje/IzlogujSe")]
+        public HttpResponseMessage IzlogujSe()
         {
-            return new string[] { "value1", "value2" };
+            return null;
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        // GET: api/Logovanje/5
+        [HttpGet]
+        [Route("api/Logovanje/ZapamtiMe/{value}")]
+        public HttpResponseMessage ZapamtiMe(string value)
         {
-            return "value";
+
+            return null;
         }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
+        // POST: api/Logovanje
+
+        public string Post([FromBody]UlogujSe value)
         {
+
+            return null;
         }
 
-        // PUT api/<controller>/5
+        // PUT: api/Logovanje/5
         public void Put(int id, [FromBody]string value)
         {
+
+            
         }
 
-        // DELETE api/<controller>/5
+        // DELETE: api/Logovanje/5
         public void Delete(int id)
         {
         }

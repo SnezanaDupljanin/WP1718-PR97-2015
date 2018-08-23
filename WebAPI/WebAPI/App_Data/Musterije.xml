@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMusterija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Musterija>
+    <KorisnickoIme>musterija</KorisnickoIme>
+    <Lozinka>musterija</Lozinka>
+    <Ime>MarkoM</Ime>
+    <Prezime>JankovicM</Prezime>
+    <Pol>Zenski</Pol>
+    <Uloga>Musterija</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>0</Id>
+        <DatumIVrijemePorudzbe>2010-10-10T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.751733541488647</KoordinataX>
+          <KoordinataY>45.253153525820665</KoordinataY>
+          <Adresa>
+            <Ulica>Centar</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+        <Musterija>musterija</Musterija>
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX>19.84742403030395</KoordinataX>
+          <KoordinataY>45.25395412113065</KoordinataY>
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>5</Iznos>
+        <Komentar>
+          <Opis>Moj komentar</Opis>
+          <DatumObjave>2018-08-13T16:12:30.5527571</DatumObjave>
+          <Korisnik>musterija</Korisnik>
+          <Voznja>0</Voznja>
+          <Ocjena>Dva</Ocjena>
+        </Komentar>
+        <StatusVoznje>Otkazana</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>1</Id>
+        <DatumIVrijemePorudzbe>2016-11-09T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8475031</KoordinataX>
+          <KoordinataY>45.2560809</KoordinataY>
+          <Adresa>
+            <Ulica>Zamja Jovinaaa</Ulica>
+            <Broj>20</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+        <Musterija>musterija</Musterija>
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX>19.843057394027706</KoordinataX>
+          <KoordinataY>45.24224617881842</KoordinataY>
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>7</Iznos>
+        <Komentar>
+          <Opis>kom2</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Kreirana_NaCekanju</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>15</Id>
+        <DatumIVrijemePorudzbe>2018-08-13T16:15:35.9392561</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8474461</KoordinataX>
+          <KoordinataY>45.2584055</KoordinataY>
+          <Adresa>
+            <Ulica>Zlatne Grede</Ulica>
+            <Broj>11</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>Nepoznato</TipAutomobila>
+        <Musterija>musterija</Musterija>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Kreirana_NaCekanju</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Banovan>false</Banovan>
+  </Musterija>
+  <Musterija>
+    <KorisnickoIme>JezdraGan</KorisnickoIme>
+    <Lozinka>jez</Lozinka>
+    <Ime>Jezdra</Ime>
+    <Prezime>Gan</Prezime>
+    <Pol>Zenski</Pol>
+    <Jmbg>1234567891234</Jmbg>
+    <KontaktTelefon>0645553333</KontaktTelefon>
+    <Email>jez@gmail.com</Email>
+    <Uloga>Musterija</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>10</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T06:41:48.3243929</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8499953</KoordinataX>
+          <KoordinataY>45.2573385</KoordinataY>
+          <Adresa>
+            <Ulica>Trg Republike</Ulica>
+            <Broj>14</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+        <Musterija>JezdraGan</Musterija>
+        <Dispecer>admin</Dispecer>
+        <Vozac>vozac7</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Obradjena</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>11</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T06:42:06.8764737</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8379819</KoordinataX>
+          <KoordinataY>45.2545146</KoordinataY>
+          <Adresa>
+            <Ulica>Gajeva</Ulica>
+            <Broj>27</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>Nepoznato</TipAutomobila>
+        <Musterija>JezdraGan</Musterija>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Kreirana_NaCekanju</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>12</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T06:42:30.4252948</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8397897</KoordinataX>
+          <KoordinataY>45.2558514</KoordinataY>
+          <Adresa>
+            <Ulica>Arse Teodorovica</Ulica>
+            <Broj>11</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>Nepoznato</TipAutomobila>
+        <Musterija>JezdraGan</Musterija>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Kreirana_NaCekanju</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Banovan>false</Banovan>
+  </Musterija>
+</ArrayOfMusterija>

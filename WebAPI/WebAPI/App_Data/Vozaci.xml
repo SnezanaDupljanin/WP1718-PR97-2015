@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfVozac xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Vozac>
+    <KorisnickoIme>vozac</KorisnickoIme>
+    <Lozinka>vozac</Lozinka>
+    <Ime>MarkoV</Ime>
+    <Prezime>JankovicV</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>45.2548547</KoordinataX>
+      <KoordinataY>19.8493893</KoordinataY>
+      <Adresa>
+        <Ulica>Ignjata Pavlasa</Ulica>
+        <Broj>bb</Broj>
+        <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+        <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac</Vozac>
+      <GodisteAutomobila>1980</GodisteAutomobila>
+      <BrojTaksiVozila>1</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac1</KorisnickoIme>
+    <Lozinka>vozac1</Lozinka>
+    <Ime>Janko</Ime>
+    <Prezime>Markovic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>19.815838336944577</KoordinataX>
+      <KoordinataY>45.25948245236333</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac1</Vozac>
+      <GodisteAutomobila>1990</GodisteAutomobila>
+      <BrojTaksiVozila>2</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac2</KorisnickoIme>
+    <Lozinka>vozac2</Lozinka>
+    <Ime>Misko</Ime>
+    <Prezime>Miskovic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>19.82776880264282</KoordinataX>
+      <KoordinataY>45.275913220733145</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac2</Vozac>
+      <GodisteAutomobila>2000</GodisteAutomobila>
+      <BrojTaksiVozila>3</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac3</KorisnickoIme>
+    <Lozinka>vozac3</Lozinka>
+    <Ime>Ivan</Ime>
+    <Prezime>Ivanovic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>19.837038516998295</KoordinataX>
+      <KoordinataY>45.25186952864547</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac3</Vozac>
+      <GodisteAutomobila>1998</GodisteAutomobila>
+      <BrojTaksiVozila>4</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac4</KorisnickoIme>
+    <Lozinka>vozac4</Lozinka>
+    <Ime>Milos</Ime>
+    <Prezime>Teodosic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>13</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T07:09:47.532033</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8507226</KoordinataX>
+          <KoordinataY>45.2544028</KoordinataY>
+          <Adresa>
+            <Ulica>Pionirska</Ulica>
+            <Broj>bb</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>Nepoznato</TipAutomobila>
+        <Musterija>nepoznato</Musterija>
+        <Dispecer>admin</Dispecer>
+        <Vozac>vozac4</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Formirana</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>19.855535030364987</KoordinataX>
+      <KoordinataY>45.252775882606045</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac4</Vozac>
+      <GodisteAutomobila>2010</GodisteAutomobila>
+      <BrojTaksiVozila>5</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>true</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac5</KorisnickoIme>
+    <Lozinka>vozac5</Lozinka>
+    <Ime>Bobi</Ime>
+    <Prezime>Marjanovic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>19.751733541488647</KoordinataX>
+      <KoordinataY>45.253153525820665</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac5</Vozac>
+      <GodisteAutomobila>2017</GodisteAutomobila>
+      <BrojTaksiVozila>6</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac6</KorisnickoIme>
+    <Lozinka>vozac6</Lozinka>
+    <Ime>Nikola</Ime>
+    <Prezime>Kalinic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>19.843057394027706</KoordinataX>
+      <KoordinataY>45.24224617881842</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac6</Vozac>
+      <GodisteAutomobila>1989</GodisteAutomobila>
+      <BrojTaksiVozila>7</BrojTaksiVozila>
+      <TipAutomobila>KombiVozilo</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>vozac7</KorisnickoIme>
+    <Lozinka>vozac7</Lozinka>
+    <Ime>Vujadin</Ime>
+    <Prezime>Savic</Prezime>
+    <Pol>Muski</Pol>
+    <Uloga>Vozac</Uloga>
+    <Voznje>
+      <Voznja>
+        <Id>2</Id>
+        <DatumIVrijemePorudzbe>2013-01-08T00:00:00</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.855535030364987</KoordinataX>
+          <KoordinataY>45.252775882606045</KoordinataY>
+          <Adresa>
+            <Ulica>na keju</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>KombiVozilo</TipAutomobila>
+        <Musterija />
+        <Vozac>vozac</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica>ulica</Ulica>
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>8</Iznos>
+        <Komentar>
+          <Opis>kom3</Opis>
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Prihvacena</StatusVoznje>
+      </Voznja>
+      <Voznja>
+        <Id>10</Id>
+        <DatumIVrijemePorudzbe>2018-06-28T06:41:48.3243929</DatumIVrijemePorudzbe>
+        <Lokacija>
+          <KoordinataX>19.8499953</KoordinataX>
+          <KoordinataY>45.2573385</KoordinataY>
+          <Adresa>
+            <Ulica>Trg Republike</Ulica>
+            <Broj>14</Broj>
+            <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+            <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+          </Adresa>
+        </Lokacija>
+        <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+        <Musterija>JezdraGan</Musterija>
+        <Dispecer>admin</Dispecer>
+        <Vozac>vozac7</Vozac>
+        <Odrediste>
+          <KoordinataX />
+          <KoordinataY />
+          <Adresa>
+            <Ulica />
+            <Broj />
+            <NaseljenoMjesto />
+            <PozivniBrojMjesta />
+          </Adresa>
+        </Odrediste>
+        <Iznos>0</Iznos>
+        <Komentar>
+          <Opis />
+          <DatumObjave>0001-01-01T00:00:00</DatumObjave>
+          <Ocjena>Neocijenjeno</Ocjena>
+        </Komentar>
+        <StatusVoznje>Obradjena</StatusVoznje>
+      </Voznja>
+    </Voznje>
+    <Lokacija>
+      <KoordinataX>45.2557316</KoordinataX>
+      <KoordinataY>19.8468607</KoordinataY>
+      <Adresa>
+        <Ulica />
+        <Broj>bb</Broj>
+        <NaseljenoMjesto>Novi Sad</NaseljenoMjesto>
+        <PozivniBrojMjesta>21101</PozivniBrojMjesta>
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>vozac7</Vozac>
+      <GodisteAutomobila>1991</GodisteAutomobila>
+      <BrojTaksiVozila>8</BrojTaksiVozila>
+      <TipAutomobila>KombiVozilo</TipAutomobila>
+    </Automobil>
+    <Zauzet>true</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+  <Vozac>
+    <KorisnickoIme>nn</KorisnickoIme>
+    <Lozinka>nn</Lozinka>
+    <Ime>neko</Ime>
+    <Prezime>nekoprezime</Prezime>
+    <Pol>Zenski</Pol>
+    <Jmbg>1231231231231</Jmbg>
+    <KontaktTelefon>0652845300</KontaktTelefon>
+    <Email>bu@gmail.com</Email>
+    <Uloga>Vozac</Uloga>
+    <Voznje />
+    <Lokacija>
+      <KoordinataX />
+      <KoordinataY />
+      <Adresa>
+        <Ulica />
+        <Broj />
+        <NaseljenoMjesto />
+        <PozivniBrojMjesta />
+      </Adresa>
+    </Lokacija>
+    <Automobil>
+      <Vozac>nn</Vozac>
+      <GodisteAutomobila>2011</GodisteAutomobila>
+      <BrojTaksiVozila>1231</BrojTaksiVozila>
+      <TipAutomobila>PutnickiAutomobil</TipAutomobila>
+    </Automobil>
+    <Zauzet>false</Zauzet>
+    <Banovan>false</Banovan>
+  </Vozac>
+</ArrayOfVozac>
