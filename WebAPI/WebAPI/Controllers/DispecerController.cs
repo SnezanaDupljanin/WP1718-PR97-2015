@@ -96,6 +96,111 @@ namespace WebAPI.Controllers
             }
             return VratiSveKorisnike();
         }
+
+        [MyAuthorization(Roles = "Administrator")]
+        [HttpGet]
+        [Route("api/Dispecer/VratiSlobodneVozace")]
+        public List<Vozac> VratiSlobodneVozace()
+        {
+            var ret = Korisnici.ListaVozaca.Where(v => !v.Zauzet).ToList();
+
+            return ret;
+        }
+
+        [MyAuthorization(Roles = "Administrator")]
+        [HttpGet]
+        [Route("api/Dispecer/VratiSlobodneVozaceNajblize/")]
+        public List<Vozac> VratiSlobodneVozaceNajblize(string idVoznje, string idMusterije)
+        {
+            string id2 = idVoznje;
+            id2 = idVoznje.Substring(9);
+
+            string x = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == idMusterije).Voznje.FirstOrDefault(v => v.Id == int.Parse(id2)).Lokacija.KoordinataX;
+            string y = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == idMusterije).Voznje.FirstOrDefault(v => v.Id == int.Parse(id2)).Lokacija.KoordinataY;
+
+            var ret = Korisnici.ListaVozaca.Where(v => !v.Zauzet).ToList();
+            ret = Sortiraj(ret, x, y);
+
+            var listaSlobodnihNajblizih = ret.Where(v => !v.Zauzet).ToList();
+
+            if (listaSlobodnihNajblizih.Count <= 5)
+            {
+                return listaSlobodnihNajblizih;
+            }
+            else
+            {
+                return listaSlobodnihNajblizih.ToList().GetRange(0, 5);
+            }
+        }
+        public List<Vozac> Sortiraj(List<Vozac> zaSortiranje, string x, string y)
+        {
+            var ret = new List<Vozac>();
+            zaSortiranje.Sort(
+                   delegate (Vozac b1, Vozac b2)
+                   {
+                       return ApsolutnoRastojanje(b1.Lokacija.KoordinataX, b1.Lokacija.KoordinataY, x, y).CompareTo(ApsolutnoRastojanje(b2.Lokacija.KoordinataX, b2.Lokacija.KoordinataY, x, y));
+                   }
+            );
+            return zaSortiranje;
+        }
+        public double ApsolutnoRastojanje(string x1, string y1, string x2, string y2)
+        {
+            double kX1 = double.Parse(x1.Replace('.', ','));
+            double kX2 = double.Parse(x2.Replace('.', ','));
+            double kY1 = double.Parse(y1.Replace('.', ','));
+            double kY2 = double.Parse(y2.Replace('.', ','));
+
+            double apsRastojanje = Math.Sqrt(Math.Pow((kX1 - kX2), 2) + Math.Pow((kY1 - kY2), 2));
+
+            return apsRastojanje;
+        }
+
+        [MyAuthorization(Roles = "Administrator")]
+        [HttpGet]
+        [Route("api/Dispecer/ObradiVoznju/")]
+        public void ObradiVoznju(string id, string korImeDisp, string korImeMusterije, string vozac)
+        {
+            string id2 = id;
+            id2 = id.Substring(9);
+            Voznja voznja = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korImeMusterije).Voznje.FirstOrDefault(v => v.Id == int.Parse(id2));
+            int indVoz = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korImeMusterije).Voznje.IndexOf(voznja);
+            Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korImeMusterije).Voznje[indVoz].StatusVoznje = StatusiVoznje.Obradjena;
+            Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korImeMusterije).Voznje[indVoz].Dispecer = korImeDisp;
+            Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korImeMusterije).Voznje[indVoz].Vozac = vozac;
+            voznja.StatusVoznje = StatusiVoznje.Obradjena;
+            voznja.Dispecer = korImeDisp;
+            voznja.Vozac = vozac;
+            Korisnici.ListaDispecera.FirstOrDefault(d => d.KorisnickoIme == korImeDisp).Voznje.Add(voznja);
+            Korisnici.ListaVozaca.FirstOrDefault(d => d.KorisnickoIme == vozac).Voznje.Add(voznja);
+            Korisnici.ListaVozaca.FirstOrDefault(d => d.KorisnickoIme == vozac).Zauzet = true;
+
+            if (File.Exists(Korisnici.PutanjaMusterije))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Musterija>));
+                using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaMusterije, false))
+                {
+                    xmlSerializer.Serialize(writer, Korisnici.ListaMusterija);
+                }
+            }
+            if (File.Exists(Korisnici.PutanjaVozaci))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Vozac>));
+                using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaVozaci, false))
+                {
+                    xmlSerializer.Serialize(writer, Korisnici.ListaVozaca);
+                }
+            }
+            if (File.Exists(Korisnici.PutanjaDispeceri))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Dispecer>));
+                using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaDispeceri, false))
+                {
+                    xmlSerializer.Serialize(writer, Korisnici.ListaDispecera);
+                }
+            }
+        }
+
+
         [MyAuthorization(Roles = "Administrator")]
         // GET: api/Dispecer/5
         public Dispecer Get()
