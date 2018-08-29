@@ -26,6 +26,58 @@ namespace WebAPI.Controllers
         }
 
         [MyAuthorization(Roles = "Administrator")]
+        [HttpPost]
+        [Route("api/Dispecer/GetLokacija/")]
+        public Lokacija GetLokacija([FromBody]JObject jsonResult)
+        {
+            if (jsonResult != null)
+            {
+                string korisnicko = "";
+                string s = jsonResult.ToString();
+                IList<JToken> addresses = jsonResult["jsonResult"]["address"].Children().ToList();
+
+                string grad = "";
+                string ulica = "";
+                string posta = "";
+                string broj = "";
+
+                foreach (var item in addresses)
+                {
+                    string ssss = item.ToString().Replace("\"", "");
+                    if (ssss.Split(':')[0] == "city")
+                    {
+                        grad = ssss.Split(':')[1].Trim();
+                    }
+                    else if (ssss.Split(':')[0] == "road")
+                    {
+                        ulica = ssss.Split(':')[1].Trim();
+                    }
+                    else if (ssss.Split(':')[0] == "postcode")
+                    {
+                        posta = ssss.Split(':')[1].Trim();
+                    }
+                    else if (ssss.Split(':')[0] == "house_number")//ako nema broj moram stavit bb
+                    {
+                        broj = ssss.Split(':')[1].Trim();
+                    }
+                }
+                IList<JToken> koordinate = jsonResult["jsonResult"]["boundingbox"].Children().ToList();
+
+                string x = koordinate[3].ToString().Trim(new char[] { '{', '}' });
+                string y = koordinate[0].ToString().Trim(new char[] { '{', '}' });
+                if (broj.Trim() == "")
+                {
+                    broj = "bb";
+                }
+                Lokacija lok = new Lokacija() { KoordinataX = x, KoordinataY = y, Adresa = new Adresa() { NaseljenoMjesto = grad, Ulica = ulica, PozivniBrojMjesta = posta, Broj = broj } };
+                korisnicko = Get().KorisnickoIme;
+
+                return lok;
+            }
+            return new Lokacija();
+        }
+
+        [MyAuthorization(Roles = "Administrator")]
         [HttpGet]
         [Route("api/Dispecer/VratiSveVoznje")]
         public List<Voznja> VratiSveVoznje()
@@ -132,6 +184,32 @@ namespace WebAPI.Controllers
                 return listaSlobodnihNajblizih.ToList().GetRange(0, 5);
             }
         }
+        [MyAuthorization(Roles = "Administrator")]
+        [HttpGet]
+        [Route("api/Dispecer/VratiSlobodneVozace1/")]
+        public List<Vozac> VratiSlobodneVozace1(string x, string y, string tipAuta)
+        {
+            var ret = Korisnici.ListaVozaca.Where(v => !v.Zauzet).ToList();
+            ret = Sortiraj(ret, x, y);
+            var listaSlobodnihNajblizih = new List<Vozac>();
+            if (tipAuta != "0")
+            {
+                listaSlobodnihNajblizih = ret.Where(v => !v.Zauzet && v.Automobil.TipAutomobila == (TipoviAutomobila)int.Parse(tipAuta)).ToList();
+            }
+            else
+            {
+                listaSlobodnihNajblizih = ret.Where(v => !v.Zauzet).ToList();
+            }
+            if (listaSlobodnihNajblizih.Count <= 5)
+            {
+                return listaSlobodnihNajblizih;
+            }
+            else
+            {
+                return listaSlobodnihNajblizih.ToList().GetRange(0, 5);
+            }
+        }
+
         public List<Vozac> Sortiraj(List<Vozac> zaSortiranje, string x, string y)
         {
             var ret = new List<Vozac>();
@@ -198,6 +276,48 @@ namespace WebAPI.Controllers
                     xmlSerializer.Serialize(writer, Korisnici.ListaDispecera);
                 }
             }
+        }
+
+        [MyAuthorization(Roles = "Administrator")]
+        [HttpPost]
+        [Route("api/Dispecer/DodajVozaca/")]
+        public HttpResponseMessage DodajVozaca([FromBody]Vozac voz)
+        {
+            string ime = voz.Ime;
+            HttpResponseMessage mess = new HttpResponseMessage();
+            //Musterija m = musterija;
+            if (Korisnici.ListaDispecera.FirstOrDefault(dispecer => dispecer.KorisnickoIme == voz.KorisnickoIme) == null && Korisnici.ListaVozaca.FirstOrDefault(dispecer => dispecer.KorisnickoIme == voz.KorisnickoIme) == null && Korisnici.ListaMusterija.FirstOrDefault(dispecer => dispecer.KorisnickoIme == voz.KorisnickoIme) == null)
+            {
+                //ne postoji korisnicko ime do sad
+                voz.Uloga = Uloge.Vozac;
+                voz.Voznje = new List<Voznja>();
+                voz.Zauzet = false;
+                string korime = voz.KorisnickoIme;
+                voz.Automobil.Vozac = korime;
+                Korisnici.ListaVozaca.Add(voz);
+                if (File.Exists(Korisnici.PutanjaVozaci))
+                {
+                    XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Vozac>));
+                    using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaVozaci, false))
+                    {
+                        xmlSerializer.Serialize(writer, Korisnici.ListaVozaca);
+                    }
+                }
+                mess.StatusCode = HttpStatusCode.OK;
+                return mess;
+            }
+            else
+            {
+                // postoji korisnicko ime vec
+                mess.StatusCode = HttpStatusCode.NotAcceptable;
+                return mess;
+            }
+        }
+
+        [MyAuthorization(Roles = "Administrator")]
+        public List<Voznja> Get(string korIme)
+        {
+            return Korisnici.ListaDispecera.FirstOrDefault(v => v.KorisnickoIme == korIme).Voznje;
         }
 
 
