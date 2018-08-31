@@ -124,6 +124,9 @@
   <ItemGroup>
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Dispecer\" />
+    <Folder Include="Views\Musterija\" />
+    <Folder Include="Views\Registracija\" />
+    <Folder Include="Views\Vozac\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -162,7 +165,10 @@
     <Compile Include="Controllers\DispecerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogovanjeController.cs" />
+    <Compile Include="Controllers\MusterijaController.cs" />
+    <Compile Include="Controllers\RegistracijaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VozacController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,6 +202,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Login.html" />
+    <Content Include="marker.png" />
+    <Content Include="Registracija.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

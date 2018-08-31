@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/MojaSkripta.js"></script>
+    <title></title>
+    <script type="text/javascript">$(document).ready(function () {
+
+            $("#txtIme").keyup(function () {
+                if (!validateString($("#txtIme").val())) {
+                    $(this).addClass("alert-danger");
+                } else {
+                    $(this).removeClass("alert-danger");
+                }
+            });
+
+            $("#txtPrezime").keyup(function () {
+                if (!validateString($(this).val())) {
+                    $(this).addClass("alert-danger");
+                } else {
+                    $(this).removeClass("alert-danger");
+                }
+            });
+
+            $("#txtTelefon").keyup(function () {
+                if (!validateNumber($(this).val())) {
+                    $(this).addClass("alert-danger");
+                } else {
+                    $(this).removeClass("alert-danger");
+                }
+            });
+
+            $("#txtJMBG").keyup(function () {
+                if (!validateNumber($(this).val())) {
+                    $(this).addClass("alert-danger");
+                } else {
+                    $(this).removeClass("alert-danger");
+                }
+            });
+
+            $("#txtEmail").keyup(function () {
+                if (!isValidEmailAddress($(this).val())) {
+                    $(this).addClass("alert-danger");
+                } else {
+                    $(this).removeClass("alert-danger");
+                }
+            });
+
+            $("#btnRegister").click(function () {
+
+                var KorisnickoIme = $("#txtUsername").val();
+                var Lozinka = $("#txtPassword").val();
+                var Email = $("#txtEmail").val();
+                var Jmbg = $("#txtJMBG").val();
+                var KontaktTelefon = $("#txtTelefon").val();
+                var Ime = $("#txtIme").val();
+                var Prezime = $("#txtPrezime").val();
+                var Pol = $("input:radio[name=pol]:checked").val();
+
+                if (Lozinka.trim() != `` && KorisnickoIme.trim() != `` && isValidEmailAddress(Email) && validateString(Ime) && KontaktTelefon.length == 10 && Jmbg.length == 13 && validateString(Prezime) && validateNumber(Jmbg) && validateNumber(KontaktTelefon)) {
+                    $("#upozorenje").removeClass(`alert-danger`);
+                    $("#upozorenje").addClass(`hidden`);
+                    $.post("/api/Registracija", { KorisnickoIme: KorisnickoIme, Lozinka: Lozinka, Email: Email, Jmbg: Jmbg, KontaktTelefon: KontaktTelefon, Ime: Ime, Prezime: Prezime, Pol: Pol }, function (data) {
+
+                    })
+                        .done(function () {
+                            //alert("uspjesno registrovano, sad se uloguj");
+                            $("#upozorenje").removeClass(`alert-danger`);
+                            $("#upozorenje").addClass(`hidden`);
+                            location.href = "Login.html";
+                        })
+                        .fail(function () {
+                            //alert("vec postoji korisnik sa datim korisnickim imenom");
+                            $("#txtUsername").val(``);
+                            $("#txtUsername").focus();
+                            $("#upozorenje").removeClass(`hidden`);
+                            $("#upozorenje").addClass(`alert-danger`);
+                            $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Vec postoji korisnik sa datim korisnickim imenom.</td>`);
+                        });
+                } else {
+                    if (!validateString(Ime)) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Ime moze sadrzati samo slova.</td>`);
+                        $("#txtIme").focus();
+                    } else if (!validateString(Prezime)) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Prezime moze sadrzati samo slova.</td>`);
+                        $("#txtPrezime").focus();
+                    } else if (!validateNumber(KontaktTelefon) || KontaktTelefon.length != 10) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Telefon moze sadrzati samo 10 brojeva.</td>`);
+                        $("#txtTelefon").focus();
+                    } else if (!validateNumber(Jmbg) || Jmbg.length != 13) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Jmbg mora sadrzati 13 brojeva.</td>`);
+                        $("#txtJMBG").focus();
+                    } else if (!isValidEmailAddress(Email)) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Email mora biti napisan u formatu nesto@yahoo.com.</td>`);
+                        $("#txtEmail").focus();
+                    } else if (Lozinka.trim() == ``) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Lozinka ne smije biti prazan string.</td>`);
+                        $("#txtPassword").val(``);
+                        $("#txtPassword").focus();
+                    } else if (KorisnickoIme.trim() == ``) {
+                        $("#upozorenje").removeClass(`hidden`);
+                        $("#upozorenje").addClass(`alert-danger`);
+                        $("#upozorenje").html(`<td colspan="2"><strong>Greska!</strong> Korisnicko ime ne smije biti prazan string.</td>`);
+                        $("#txtUsername").val(``);
+                        $("#txtUsername").focus();
+                    }
+                }
+            });
+        });</script>
+</head>
+<body style="padding:200px 400px 200px 400px;">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="success">
+                <th colspan="2">
+                    Registracija
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="upozorenje" class="hidden">
+                <td colspan="2"><strong>Greska!</strong>Vec postoji korisnik sa zadatim korisnickim imenom</td>
+            </tr>
+            <tr>
+                <td>Korisnicko ime:</td>
+                <td>
+                    <input type="text" id="txtUsername" placeholder="Korisnicko ime..." />
+                </td>
+            </tr>
+            <tr>
+                <td>Sifra:</td>
+                <td>
+                    <input type="password" id="txtPassword"
+                           placeholder="Sifra..." />
+                </td>
+            </tr>
+            <tr>
+                <td>Ime:</td>
+                <td>
+                    <input type="text" id="txtIme" pattern="^[A-Za-z]*$"
+                           placeholder="Ime..." />
+                </td>
+            </tr>
+            <tr>
+                <td>Prezime:</td>
+                <td>
+                    <input type="text" id="txtPrezime"
+                           placeholder="Prezime..." />
+                </td>
+            </tr>
+            <tr>
+                <td>Kontakt telefon:</td>
+                <td>
+                    <input type="text" id="txtTelefon"
+                           placeholder="Broj telefona..." />
+                </td>
+            </tr>
+            <tr>
+                <td>JMBG:</td>
+                <td>
+                    <input type="text" id="txtJMBG"
+                           placeholder="Maticni broj..." />
+                </td>
+            </tr>
+            <tr>
+                <td>Pol:</td>
+                <td>
+                    <input type="radio" name="pol" value="0"> Muski
+                    <input type="radio" name="pol" value="1" checked="checked"> Zenski
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input type="email" id="txtEmail" placeholder="Email..." />
+                </td>
+            </tr>
+            <tr class="success">
+                <td colspan="2">
+                    <input id="btnRegister" class="btn btn-success" type="button"
+                           value="Registruj se" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
