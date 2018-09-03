@@ -982,4 +982,4 @@ let PrikaziMapu = function () {
     pomocna();
     var icon1 = "marker.png";
 
-};5
+};

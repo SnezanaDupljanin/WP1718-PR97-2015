@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Xml.Serialization;
+using WebAPI.Models;
 
 namespace WebAPI.Controllers
 {
-    public class VozacController : Controller
+    public class VozacController : ApiController
     {
-        // GET: Vozac
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

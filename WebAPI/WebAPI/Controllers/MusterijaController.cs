@@ -15,6 +15,28 @@ namespace WebAPI.Controllers
     {
         [MyAuthorization(Roles = "Musterija")]
         [HttpGet]
+        [Route("api/Musterija/OstaviKomentar/")]
+        public void OstaviKomentar(string Opis, string Ocjena, string Korisnik, string Voznja)
+        {
+            string koment = Opis;
+            string idVoznje = Voznja.Substring(9);
+            int i = int.Parse(idVoznje);
+            Musterija must = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == Korisnik);
+            int indVoznja = must.Voznje.IndexOf(must.Voznje.FirstOrDefault(v => v.Id == i));
+            Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == Korisnik).Voznje[indVoznja].Komentar = new Komentar() { Korisnik = Korisnik, Voznja = idVoznje, DatumObjave = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified), Opis = Opis, Ocjena = (Ocjene)(int.Parse(Ocjena)) };
+            if (File.Exists(Korisnici.PutanjaMusterije))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Musterija>));
+                using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaMusterije, false))
+                {
+                    xmlSerializer.Serialize(writer, Korisnici.ListaMusterija);
+                }
+            }
+            System.Web.HttpContext.Current.Session["mojaSesija"] = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == Korisnik);
+            //return Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme).Voznje.FirstOrDefault(v => v.Id == i);
+        }
+        [MyAuthorization(Roles = "Musterija")]
+        [HttpGet]
         [Route("api/Musterija/VratiVoznju/")]
         public Voznja VratiVoznju(string id, string korIme)
         {
@@ -23,6 +45,27 @@ namespace WebAPI.Controllers
             Musterija must = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme);
             //int indVoznja = must.Voznje.IndexOf(must.Voznje.FirstOrDefault(v => v.Id == i));
             return Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme).Voznje.FirstOrDefault(v => v.Id == i);
+        }
+
+        [MyAuthorization(Roles = "Musterija")]
+        public void Get(string id, string korIme)
+        {
+            string idMusterija = id.Substring(9);
+            int i = int.Parse(idMusterija);
+            Musterija must = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme);
+            int indVoznja = must.Voznje.IndexOf(must.Voznje.FirstOrDefault(v => v.Id == i));
+            //must.Voznje.RemoveAt(indVoznja);
+            Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme).Voznje[indVoznja].StatusVoznje = StatusiVoznje.Otkazana;
+            Musterija ret = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme);
+            if (File.Exists(Korisnici.PutanjaMusterije))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Musterija>));
+                using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaMusterije, false))
+                {
+                    xmlSerializer.Serialize(writer, Korisnici.ListaMusterija);
+                }
+            }
+            System.Web.HttpContext.Current.Session["mojaSesija"] = ret;
         }
 
         [MyAuthorization(Roles = "Musterija")]
@@ -88,6 +131,35 @@ namespace WebAPI.Controllers
             }
             return new Lokacija();
         }
+
+        [MyAuthorization(Roles = "Musterija")]
+        [HttpGet]
+        [Route("api/Musterija/KreirajVoznju/")]
+        public HttpResponseMessage KreirajVoznju(string x, string y, string tip, string ulica, string broj, string posta, string grad, string korIme)
+        {
+            HttpResponseMessage ret = new HttpResponseMessage();
+            ret.StatusCode = HttpStatusCode.OK;
+            string xxx = ulica;
+
+            Adresa adresa = new Adresa() { Ulica = ulica, Broj = broj, NaseljenoMjesto = grad, PozivniBrojMjesta = posta };
+            Lokacija lokacija = new Lokacija() { Adresa = adresa, KoordinataX = x, KoordinataY = y };
+            Voznja voznja = new Voznja() { DatumIVrijemePorudzbe = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Unspecified), Musterija = korIme, StatusVoznje = StatusiVoznje.Kreirana_NaCekanju, Lokacija = lokacija, TipAutomobila = (TipoviAutomobila)(int.Parse(tip)), Komentar = new Komentar() { Opis = "", Ocjena = Ocjene.Neocijenjeno } };
+            //Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme).Voznje.IndexOf()
+            Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme).Voznje.Add(voznja);
+
+            if (File.Exists(Korisnici.PutanjaMusterije))
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Musterija>));
+                using (StreamWriter writer = new StreamWriter(Korisnici.PutanjaMusterije, false))
+                {
+                    xmlSerializer.Serialize(writer, Korisnici.ListaMusterija);
+                }
+            }
+
+            System.Web.HttpContext.Current.Session["mojaSesija"] = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme);
+            return ret;
+        }
+
         [MyAuthorization(Roles = "Musterija")]
         [HttpGet]
         [Route("api/Musterija/IzmijeniVoznju/")]
@@ -116,6 +188,7 @@ namespace WebAPI.Controllers
             }
             System.Web.HttpContext.Current.Session["mojaSesija"] = Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme);
         }
+
 
         [MyAuthorization(Roles = "Musterija")]
         // POST: api/Musterija
