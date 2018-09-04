@@ -13,6 +13,44 @@ namespace WebAPI.Controllers
 {
     public class VozacController : ApiController
     {
+        //api/Dispecer/VratiSortiraneVoznje
+        [MyAuthorization(Roles = "Vozac")]
+        [HttpGet]
+        [Route("api/Vozac/VratiSortiraneVoznje/")]
+        public List<Voznja> VratiSortiraneVoznje(List<Voznja> sveVoznje)
+        {
+            var ret = Sortiraj(sveVoznje, Get().Lokacija.KoordinataX, Get().Lokacija.KoordinataY);
+            return ret;
+        }
+        [MyAuthorization(Roles = "Vozac")]
+        [HttpGet]
+        [Route("api/Vozac/VratiAutomobil/")]
+        public TipoviAutomobila VratiAutomobil(string korIme)
+        {
+            return Korisnici.ListaVozaca.FirstOrDefault(v => v.KorisnickoIme == korIme).Automobil.TipAutomobila;
+        }
+        public List<Voznja> Sortiraj(List<Voznja> zaSortiranje, string x, string y)
+        {
+            var ret = new List<Vozac>();
+            zaSortiranje.Sort(
+                   delegate (Voznja b1, Voznja b2)
+                   {
+                       return ApsolutnoRastojanje(b1.Lokacija.KoordinataX, b1.Lokacija.KoordinataY, x, y).CompareTo(ApsolutnoRastojanje(b2.Lokacija.KoordinataX, b2.Lokacija.KoordinataY, x, y));
+                   }
+            );
+            return zaSortiranje;
+        }
+        public double ApsolutnoRastojanje(string x1, string y1, string x2, string y2)
+        {
+            double kX1 = double.Parse(x1.Replace('.', ','));
+            double kX2 = double.Parse(x2.Replace('.', ','));
+            double kY1 = double.Parse(y1.Replace('.', ','));
+            double kY2 = double.Parse(y2.Replace('.', ','));
+
+            double apsRastojanje = Math.Sqrt(Math.Pow((kX1 - kX2), 2) + Math.Pow((kY1 - kY2), 2));
+
+            return apsRastojanje;
+        }
         [MyAuthorization(Roles = "Vozac")]
         [HttpPost]
         [Route("api/Vozac/GetLokacija/")]
