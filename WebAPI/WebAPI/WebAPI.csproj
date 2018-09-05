@@ -197,7 +197,6 @@
     <Content Include="Dispecer.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Index.html" />
     <Content Include="Login.html" />
     <Content Include="marker.png" />
     <Content Include="Musterija.html" />

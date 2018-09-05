@@ -229,4 +229,17 @@
     </Voznje>
     <Banovan>false</Banovan>
   </Musterija>
+  <Musterija>
+    <KorisnickoIme>snezana</KorisnickoIme>
+    <Lozinka>s</Lozinka>
+    <Ime>Snezana</Ime>
+    <Prezime>Dupljanin</Prezime>
+    <Pol>Zenski</Pol>
+    <Jmbg>1231231231231</Jmbg>
+    <KontaktTelefon>0652845300</KontaktTelefon>
+    <Email>tvf@gmail.com</Email>
+    <Uloga>Musterija</Uloga>
+    <Voznje />
+    <Banovan>false</Banovan>
+  </Musterija>
 </ArrayOfMusterija>
