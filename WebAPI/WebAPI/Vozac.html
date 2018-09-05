@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Scripts/ol.css" type="text/css">
+    <style>
+
+        .map {
+            height: 300px;
+            width: 50%;
+        }
+
+        th[name=sortiraj] {
+            cursor: pointer;
+        }
+
+        th[name=pocetnaLokacija] {
+            cursor: pointer;
+        }
+    </style>
+    <script src="Scripts/ol.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/MojaSkripta.js"></script>
+    <script src="Scripts/KreiranjeVoznje.js"></script>
+    <title></title>
+    <script type="text/javascript">$(document).ready(function () {
+
+            let korisnik = ``;
+            $.get("/api/Vozac", function (data) {
+                //alert(data.KorisnickoIme);
+                korisnik = data;
+                /*if (data.Banovan) {
+                    $("body").attr(`style`,`padding:300px 300px 400px 500px;`);
+                    $("body").html(`<p><b>Banovan si!!</b></p>`);
+                }*/
+                $("#korisnik").html(data.KorisnickoIme + `<span class="caret"></span>`);
+                IspisiVoznjeVozac(korisnik.Voznje, korisnik.KorisnickoIme);
+                writeModalLocation(data.Lokacija);
+                $("#prikazPodatakaDrugi").html(``);
+            });
+
+            $("#prikaziPodatke").click(function () {
+                IspisiPodatke(korisnik);
+                $("#prikazPodatakaDrugi").html(``);
+            });
+
+            $("#izmijeniPodatke").click(function () {
+                IzmijeniPodatke3(korisnik);
+                $("#prikazPodatakaDrugi").html(``);
+            });
+
+            $("#prikaziAuto").click(function () {
+                PrikaziPodatkeOAutomobilu(korisnik);
+                $("#prikazPodatakaDrugi").html(``);
+            });
+
+            $("#promijeniSifru").click(function () {
+                $("#prikazPodatakaDrugi").html(``);
+                IzmijeniSifru3(korisnik);
+            });
+
+            $("#IspisiKreiraneVoznje").click(function () {
+                $("#prikazPodatakaDrugi").html(``);
+                $.get("/api/Vozac/VratiKreirane", function (data) {
+                    IspisiVoznjeVozac(data, korisnik.KorisnickoIme);
+                });
+            });
+
+            $("#PromijeniLokaciju").click(function () {
+                $.get("/api/Vozac", function (data) {
+                    korisnik = data;
+                    $("#korisnik").html(data.KorisnickoIme + `<span class="caret"></span>`);
+                    //IzmijeniLokaciju(korisnik.KorisnickoIme);
+                    PrikaziMapu();
+                });
+                $("#prikazPodatakaDrugi").html(``);
+            });
+
+            $("#logout").click(function () {
+                $("#prikazPodatakaDrugi").html(``);
+                $.get("/api/Logovanje/IzlogujSe", function (data) { /*alert(`uspjesno izlogovan`);*/ })
+                    .fail(function () {
+                        //alert(`greskaaaaaa`);
+                    });
+                //$.cookie("mojKuki", null);
+                //alert(`iza brisanja kukija`);
+                location.href = "Login.html";
+            });
+
+            $("#pocetna").click(function () {
+                $("#prikazPodatakaDrugi").html(``);
+                $.get("/api/Vozac", function (data) {
+                    //alert(data.KorisnickoIme);
+                    korisnik = data;
+                    $("#korisnik").html(data.KorisnickoIme + `<span class="caret"></span>`);
+                    IspisiVoznjeVozac(korisnik.Voznje, korisnik.KorisnickoIme);
+                });
+            });
+        });</script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-nav">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand glyphicon glyphicon-home" id="pocetna" href="#"> Pocetna</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="navbar-brand" id="lokacija" data-toggle="modal" data-target="#myloc" href="#">Lokacija</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="korisnik" class="navbar-brand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a id="prikaziPodatke" href="#">Moji podaci</a></li>
+                            <li><a id="izmijeniPodatke" href="#">Izmijeni podatke</a></li>
+                            <li><a id="prikaziAuto" href="#">Podaci o automobilu</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id="promijeniSifru" href="#">Promijeni sifru</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="navbar-brand glyphicon glyphicon-log-out pull-right" id="logout" href="#"> Izloguj se</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="divwritemodal"></div>
+    <div id="dugmad">
+        <button id="IspisiKreiraneVoznje" type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-arrow-down"></span> Ispisi sve kreirane voznje
+        </button>
+        <button id="PromijeniLokaciju" type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-arrow-down"></span> Promijeni Lokaciju
+        </button>
+    </div>
+    <div id="prikazPodataka">
+        <h2></h2>
+    </div>
+    <div id="prikazPodatakaDrugi">
+        <h2></h2>
+    </div>
+</body>
+</html>

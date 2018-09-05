@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using WebAPI.Models;
+using System.Web.SessionState;
 
 namespace WebAPI
 {
@@ -34,7 +35,7 @@ namespace WebAPI
         void MyPostAuthenticateRequest(object sender, EventArgs e)
         {
 
-            //System.Web.HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
+            System.Web.HttpContext.Current.SetSessionStateBehavior(SessionStateBehavior.Required);
 
         }
     }

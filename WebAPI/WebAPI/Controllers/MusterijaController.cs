@@ -73,6 +73,7 @@ namespace WebAPI.Controllers
         {
             return Korisnici.ListaMusterija.FirstOrDefault(m => m.KorisnickoIme == korIme).Voznje;
         }
+
         [MyAuthorization(Roles = "Musterija")]
         // GET: api/Musterija/5
         public Musterija Get()
@@ -81,6 +82,7 @@ namespace WebAPI.Controllers
 
             return k;
         }
+
         [MyAuthorization(Roles = "Musterija")]
         [HttpPost]
         [Route("api/Musterija/GetLokacija/")]
