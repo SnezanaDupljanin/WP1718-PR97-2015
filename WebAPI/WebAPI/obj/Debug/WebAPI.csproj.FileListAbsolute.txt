@@ -45,3 +45,4 @@ C:\Users\ASUS\Desktop\WebProj\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileI
 C:\Users\ASUS\Desktop\WebProj\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 C:\Users\ASUS\Desktop\WebProj\WebAPI\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\ASUS\Desktop\WebProj\WebAPI\WebAPI\obj\Debug\WebAPI.pdb
+C:\Users\ASUS\Desktop\WebProj\WebAPI\WebAPI\obj\Debug\WebAPI.csprojAssemblyReference.cache

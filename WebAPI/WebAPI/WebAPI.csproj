@@ -228,8 +228,12 @@
     <Content Include="Scripts\KreiranjeVoznje.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MojaSkripta.js" />
+    <Content Include="Scripts\ol-debug.js" />
+    <Content Include="Scripts\ol.css" />
+    <Content Include="Scripts\ol.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\TabeleSort.js" />
     <Content Include="Vozac.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
